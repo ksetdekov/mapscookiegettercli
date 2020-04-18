@@ -189,7 +189,7 @@ class CookieGetter:  # pylint: disable=too-few-public-methods
         session = Session()
         self._logger.info('Transferring cookies to a requests session.')
         for cookie in driver.get_cookies():
-            for invalid in ['httpOnly', 'expiry']:
+            for invalid in ['httpOnly', 'expiry', 'sameSite']:
                 try:
                     del cookie[invalid]
                 except KeyError:
